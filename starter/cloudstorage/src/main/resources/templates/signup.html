@@ -15,12 +15,12 @@
             </div>
 
             <h1 class="display-5">Sign Up</h1>
-            <form th:action="@{/signup}" action="#" method="POST">
-                <div class="alert alert-dark">
+            <form action="#" method="POST" th:action="@{/signup}">
+                <div th:if="${signupSuccess}" id="success-msg" class="alert alert-dark">
                     You successfully signed up! Please continue to the <a>login</a> page.
                 </div>
-                <div class="alert alert-danger">
-                    <span>Example Signup Error Message</span>
+                <div th:if="${signupError}" class="alert alert-danger" id="error-msg">
+                    <span th:text="${errorMsg}"></span>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
